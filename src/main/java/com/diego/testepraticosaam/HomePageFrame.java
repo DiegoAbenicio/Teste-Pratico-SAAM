@@ -125,7 +125,7 @@ public class HomePageFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void employeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeesButtonActionPerformed
-        EmployessListFrame employessListFrame = new EmployessListFrame();
+        EmployeesListFrame employessListFrame = new EmployeesListFrame();
         employessListFrame.setVisible(true);
         employessListFrame.pack();
         employessListFrame.setLocationRelativeTo(null);
