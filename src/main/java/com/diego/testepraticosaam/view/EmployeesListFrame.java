@@ -2,10 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.diego.testepraticosaam;
+package com.diego.testepraticosaam.view;
 
-import com.diego.entity.Employees;
-import com.diego.util.DataUtil;
+import com.diego.testepraticosaam.view.HomePageFrame;
+import com.diego.testepraticosaam.model.Employees;
+import com.diego.testepraticosaam.service.EmployeesService;
+import com.diego.testepraticosaam.util.DataUtil;
 import java.util.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

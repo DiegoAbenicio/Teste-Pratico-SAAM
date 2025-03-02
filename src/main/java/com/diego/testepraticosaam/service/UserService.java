@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.diego.testepraticosaam;
+package com.diego.testepraticosaam.service;
 
-import com.diego.database.ConnectionDataBase;
-import com.diego.entity.Users;
-import com.diego.util.EncryptionUtil;
+import com.diego.testepraticosaam.model.ConnectionDataBase;
+import com.diego.testepraticosaam.model.Users;
+import com.diego.testepraticosaam.util.EncryptionUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

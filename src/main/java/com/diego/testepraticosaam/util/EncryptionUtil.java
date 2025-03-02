@@ -1,4 +1,4 @@
-package com.diego.util;
+package com.diego.testepraticosaam.util;
 
 
 import java.math.BigInteger;

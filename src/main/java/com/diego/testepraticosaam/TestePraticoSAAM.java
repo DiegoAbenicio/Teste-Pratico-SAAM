@@ -4,6 +4,8 @@
 
 package com.diego.testepraticosaam;
 
+import com.diego.testepraticosaam.view.LoginFrame;
+
 /**
  *
  * @author diego
