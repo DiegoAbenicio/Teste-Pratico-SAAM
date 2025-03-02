@@ -24,8 +24,9 @@ public class EmployeesService {
     
     public String createEmployee(Employees employee) {
         String sql = "INSERT INTO public.employees (name, status, remuneration, admission_date) VALUES (?, ?, ?, ?)";
-        try (Connection connection = new ConnectionDataBase().getConexao();
-            PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try {
+            Connection connection = new ConnectionDataBase().getConexao();
+            PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, employee.getName());
             stmt.setBoolean(2, employee.getStatus());
             stmt.setBigDecimal(3, employee.getRemuneration());
@@ -88,14 +89,13 @@ public class EmployeesService {
             stmt.setInt(1, id);
             int rowsAffected = stmt.executeUpdate();
             if (rowsAffected > 0) {
-                return "Funcionário excluído com sucesso!";
-            } else {
-                return "Funcionário não encontrado!";
+                return "Ok";
             }
+            JOptionPane.showMessageDialog(null, "Houve um problema ao excluir o funcionário");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao excluir funcionário: " + e.getMessage());
-            return "Erro ao excluir funcionário!";
         }
+        return null;
     }
     
     public Employees findById(int id) {

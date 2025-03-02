@@ -4,6 +4,11 @@
  */
 package com.diego.testepraticosaam;
 
+import com.diego.entity.Users;
+import com.diego.session.AuthenticatedUser;
+import java.util.Objects;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author diego
@@ -20,13 +25,13 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
+        emailField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        botaoLogin = new javax.swing.JButton();
-        botaoRegistro = new javax.swing.JButton();
+        loginButton = new javax.swing.JButton();
+        registerButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        password = new javax.swing.JPasswordField();
+        passwordField = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -47,24 +52,24 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel3.setText("Email:");
         jLabel3.setToolTipText("");
 
-        botaoLogin.setBackground(new java.awt.Color(53, 81, 145));
-        botaoLogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoLogin.setForeground(new java.awt.Color(255, 255, 255));
-        botaoLogin.setText("LOGIN");
-        botaoLogin.setToolTipText("");
-        botaoLogin.addActionListener(new java.awt.event.ActionListener() {
+        loginButton.setBackground(new java.awt.Color(53, 81, 145));
+        loginButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        loginButton.setForeground(new java.awt.Color(255, 255, 255));
+        loginButton.setText("LOGIN");
+        loginButton.setToolTipText("");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoLoginActionPerformed(evt);
+                loginButtonActionPerformed(evt);
             }
         });
 
-        botaoRegistro.setBackground(new java.awt.Color(53, 81, 145));
-        botaoRegistro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoRegistro.setForeground(new java.awt.Color(255, 255, 255));
-        botaoRegistro.setText("REGISTRO");
-        botaoRegistro.addActionListener(new java.awt.event.ActionListener() {
+        registerButton.setBackground(new java.awt.Color(53, 81, 145));
+        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        registerButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerButton.setText("REGISTRO");
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoRegistroActionPerformed(evt);
+                registerButtonActionPerformed(evt);
             }
         });
 
@@ -85,14 +90,14 @@ public class LoginFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(25, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoRegistro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(loginButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registerButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -107,17 +112,17 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
-                .addComponent(botaoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88))
         );
 
@@ -165,21 +170,30 @@ public class LoginFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLoginActionPerformed
-        HomePageFrame homePageFrame = new HomePageFrame();
-        homePageFrame.setVisible(true);
-        homePageFrame.pack();
-        homePageFrame.setLocationRelativeTo(null);
-        this.dispose();
-    }//GEN-LAST:event_botaoLoginActionPerformed
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        String email = emailField.getText();
+        String password = new String(passwordField.getPassword());
+        UserService userService = new UserService();
+        Users user = userService.validateLogin(email, password);
+        if(Objects.nonNull(user)){
+            AuthenticatedUser.setUsuario(user);
+            HomePageFrame homePageFrame = new HomePageFrame();
+            homePageFrame.setVisible(true);
+            homePageFrame.pack();
+            homePageFrame.setLocationRelativeTo(null);
+            this.dispose();
+        } else{
+            JOptionPane.showMessageDialog(this, "Email ou senha incorretos!");
+        }
+    }//GEN-LAST:event_loginButtonActionPerformed
 
-    private void botaoRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRegistroActionPerformed
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         RegisterFrame registerFrame = new RegisterFrame();
         registerFrame.setVisible(true);
         registerFrame.pack();
         registerFrame.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_botaoRegistroActionPerformed
+    }//GEN-LAST:event_registerButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,9 +207,7 @@ public class LoginFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoLogin;
-    private javax.swing.JButton botaoRegistro;
-    private javax.swing.JTextField email;
+    private javax.swing.JTextField emailField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -203,6 +215,8 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField password;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -30,7 +30,7 @@ public class DataUtil {
         return dateFormat.format(date);
     }
     
-    public static Boolean validateDate(String input){
+    public static Boolean invalidDate(String input){
         return Objects.isNull(convertDate(input));
     }
     

@@ -288,7 +288,7 @@ public class EmployeesListFrame extends javax.swing.JFrame {
             EmployeesService employeesService = new EmployeesService();
             Employees employee = employeesService.findById(id);
             if (employee != null) {
-                EmplyessCreateFrame emplyessCreateFrame = new EmplyessCreateFrame(employee);
+                EmployeesCreateFrame emplyessCreateFrame = new EmployeesCreateFrame(employee);
                 emplyessCreateFrame.setVisible(true);
                 emplyessCreateFrame.pack();
                 emplyessCreateFrame.setLocationRelativeTo(null);
@@ -322,7 +322,7 @@ public class EmployeesListFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_previousPageActionPerformed
 
     private void addEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeesActionPerformed
-        EmplyessCreateFrame emplyessCreateFrame = new EmplyessCreateFrame(null);
+        EmployeesCreateFrame emplyessCreateFrame = new EmployeesCreateFrame(null);
         emplyessCreateFrame.setVisible(true);
         emplyessCreateFrame.pack();
         emplyessCreateFrame.setLocationRelativeTo(null);
@@ -334,9 +334,11 @@ public class EmployeesListFrame extends javax.swing.JFrame {
         if (selectedRow != -1) {
             int id = (int) jTable1.getValueAt(selectedRow, 4);
             EmployeesService employeesService = new EmployeesService();
-            employeesService.deleteEmployee(id);
-            JOptionPane.showMessageDialog(this, "Excluído com sucesso");
-            loadDate();
+            String status = employeesService.deleteEmployee(id);
+            if(status.trim().equals("Ok")){
+                JOptionPane.showMessageDialog(this, "Excluído com sucesso");
+                loadDate();
+            }
         } else{
             JOptionPane.showMessageDialog(this, "Selecione uma coluna antes de excluir");
         } 

@@ -4,17 +4,26 @@
  */
 package com.diego.entity;
 
+import com.diego.util.EncryptionUtil;
+
+
 /**
  *
  * @author diego
  */
-public class User {
+public class Users {
     
     private Integer id;
     private String name;
     private String password;
     private String email;
 
+    public Users(String name, String password, String email){
+        setName(name);
+        setPassword(password);
+        setEmail(email);
+    }
+    
     public Integer getId() {
         return id;
     }
@@ -36,7 +45,8 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+       this.password = EncryptionUtil.hashPassword(password);
+      
     }
 
     public String getEmail() {

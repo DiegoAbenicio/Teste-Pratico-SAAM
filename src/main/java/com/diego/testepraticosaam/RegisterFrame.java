@@ -4,6 +4,13 @@
  */
 package com.diego.testepraticosaam;
 
+import com.diego.entity.Users;
+import com.diego.util.DataUtil;
+import java.math.BigDecimal;
+import java.util.Objects;
+import javax.swing.JOptionPane;
+import jdk.jfr.Period;
+
 /**
  *
  * @author diego
@@ -29,8 +36,8 @@ public class RegisterFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         username = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        confirmPassword = new javax.swing.JPasswordField();
-        password = new javax.swing.JPasswordField();
+        secondPassword = new javax.swing.JPasswordField();
+        firstPassword = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -113,14 +120,13 @@ public class RegisterFrame extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addGap(43, 43, 43)
                                 .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(firstPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jLabel2)
-                        .addGap(106, 106, 106))
+                        .addComponent(jLabel2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(secondPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -139,11 +145,11 @@ public class RegisterFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(firstPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(confirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(secondPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
@@ -196,17 +202,55 @@ public class RegisterFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
-        // TODO add your handling code here:
+        if(this.checkFields()){
+            try{
+                Users users = new Users(username.getText(), new String(firstPassword.getPassword()), email.getText());
+                UserService userService = new UserService();
+                String result = userService.createEmployee(users);
+                if(result.trim().equals("Created")){
+                    JOptionPane.showMessageDialog(this, "Cadastro feito com Sucesso!");
+                    backToLogin();
+                } 
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(this, "Erro ao salvar funcionário: " + e.getMessage());
+            }
+            
+        }
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
+    private Boolean checkFields(){
+        if(username.getText().trim().equals("") || username.getText() == null){
+            JOptionPane.showMessageDialog(this, "O campo de nome não pode estar vazio");
+            return false;
+        } else if(email.getText().trim().equals("") || email.getText() == null){
+            JOptionPane.showMessageDialog(this, "O campo de email não pode estar vazio");
+            return false;
+        } else if(firstPassword.getPassword().length == 0){
+            JOptionPane.showMessageDialog(this, "O campo de senha não pode estar vazio");
+            return false;
+        } else if(secondPassword.getPassword().length == 0){
+            JOptionPane.showMessageDialog(this, "O campo de confirmar a senha não pode estar vazio");
+            return false;
+        } else if(!java.util.Arrays.equals(firstPassword.getPassword(), secondPassword.getPassword())){ 
+            JOptionPane.showMessageDialog(this, "As senhas inseridas não correspondem!");
+            return false;
+        }
+        return true;
+    }
+    
+    
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+        backToLogin();
+    }//GEN-LAST:event_botaoVoltarActionPerformed
+
+    private void backToLogin(){
         LoginFrame loginFrame = new LoginFrame();
         loginFrame.setVisible(true);
         loginFrame.pack();
         loginFrame.setLocationRelativeTo(null);
         this.dispose();
-    }//GEN-LAST:event_botaoVoltarActionPerformed
-
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -221,8 +265,8 @@ public class RegisterFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoSalvar;
     private javax.swing.JButton botaoVoltar;
-    private javax.swing.JPasswordField confirmPassword;
     private javax.swing.JTextField email;
+    private javax.swing.JPasswordField firstPassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -232,7 +276,7 @@ public class RegisterFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField password;
+    private javax.swing.JPasswordField secondPassword;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

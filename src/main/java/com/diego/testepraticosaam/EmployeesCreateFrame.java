@@ -19,11 +19,11 @@ import javax.swing.text.MaskFormatter;
  *
  * @author diego
  */
-public class EmplyessCreateFrame extends javax.swing.JFrame {
+public class EmployeesCreateFrame extends javax.swing.JFrame {
      
     private int idEmployees;
     
-    public EmplyessCreateFrame(Employees employees) {
+    public EmployeesCreateFrame(Employees employees) {
         initComponents();
         if(Objects.nonNull(employees)){
             setUpdateFrame(employees);
@@ -267,21 +267,20 @@ public class EmplyessCreateFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private Boolean checkFields(){
-        Boolean correctInserts = true;
         if(name.getText().trim().equals("") || name.getText() == null){
             JOptionPane.showMessageDialog(this, "O campo de nome do funcionário não pode ser vazio");
-            correctInserts = false;
+            return false;
         } else if(remunaration.getText().trim().equals("") || remunaration.getText() == null){
             JOptionPane.showMessageDialog(this, "O campo de salário do funcionário não pode ser vazio");
-            correctInserts = false;
+            return false;
         } else if(buttonGroup1.getSelection() == null){
             JOptionPane.showMessageDialog(this, "Selecione o status do Funcionário");
-            correctInserts = false;
-        } else if(DataUtil.validateDate(admissionDate.getText().trim())){
+            return false;
+        } else if(DataUtil.invalidDate(admissionDate.getText().trim())){
             JOptionPane.showMessageDialog(this, "Porfavor insira uma data válida");
-            correctInserts = false;
+            return false;
         }
-        return correctInserts;
+        return true;
     }
     
     private void cleanFields(){
@@ -301,7 +300,7 @@ public class EmplyessCreateFrame extends javax.swing.JFrame {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EmplyessCreateFrame(null).setVisible(true);
+                new EmployeesCreateFrame(null).setVisible(true);
             }
         });
     }
