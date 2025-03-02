@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.diego.testepraticosaam.view;
 
-import com.diego.testepraticosaam.view.LoginFrame;
 import com.diego.testepraticosaam.model.AuthenticatedUser;
 import javax.swing.JOptionPane;
 
@@ -25,8 +20,6 @@ public class HomePageFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         employeesButton = new javax.swing.JButton();
-        buttonUseless1 = new javax.swing.JButton();
-        buttonUseless2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         userName = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
@@ -41,25 +34,13 @@ public class HomePageFrame extends javax.swing.JFrame {
         employeesButton.setBackground(new java.awt.Color(53, 81, 145));
         employeesButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         employeesButton.setForeground(new java.awt.Color(255, 255, 255));
-        employeesButton.setText("<html><center>Tela de<br>Funcionários</center></html>");
+        employeesButton.setText("Tela de Funcionários");
         employeesButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         employeesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 employeesButtonActionPerformed(evt);
             }
         });
-
-        buttonUseless1.setBackground(new java.awt.Color(53, 81, 145));
-        buttonUseless1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        buttonUseless1.setForeground(new java.awt.Color(255, 255, 255));
-        buttonUseless1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        buttonUseless1.setLabel("<html><center>Botão sem<br>Funcionalidade</center></html>");
-
-        buttonUseless2.setBackground(new java.awt.Color(53, 81, 145));
-        buttonUseless2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        buttonUseless2.setForeground(new java.awt.Color(255, 255, 255));
-        buttonUseless2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        buttonUseless2.setLabel("<html><center>Botão sem<br>Funcionalidade</center></html>");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(53, 81, 145));
@@ -88,74 +69,55 @@ public class HomePageFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(employeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
-                .addComponent(buttonUseless1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133)
-                .addComponent(buttonUseless2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(174, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                 .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(49, 49, 49)
-                    .addComponent(jLabel4)
-                    .addContainerGap(929, Short.MAX_VALUE)))
+                .addContainerGap(129, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(employeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jLabel2)
-                .addGap(60, 60, 60)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(employeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonUseless1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonUseless2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(127, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(53, 53, 53)
-                    .addComponent(jLabel4)
-                    .addContainerGap(471, Short.MAX_VALUE)))
+                .addGap(40, 40, 40)
+                .addComponent(employeesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void employeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeesButtonActionPerformed
-        EmployeesListFrame employessListFrame = new EmployeesListFrame();
-        employessListFrame.setVisible(true);
-        employessListFrame.pack();
-        employessListFrame.setLocationRelativeTo(null);
-    }//GEN-LAST:event_employeesButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         int confirm = JOptionPane.showConfirmDialog(this, "Deseja realmente deslogar?", "Confirmação",JOptionPane.YES_NO_OPTION);
@@ -168,6 +130,13 @@ public class HomePageFrame extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void employeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeesButtonActionPerformed
+        EmployeesListFrame employessListFrame = new EmployeesListFrame();
+        employessListFrame.setVisible(true);
+        employessListFrame.pack();
+        employessListFrame.setLocationRelativeTo(null);
+    }//GEN-LAST:event_employeesButtonActionPerformed
 
     private void recoverUserName(){
         userName.setText(AuthenticatedUser.getUsuario().getName());
@@ -185,8 +154,6 @@ public class HomePageFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonUseless1;
-    private javax.swing.JButton buttonUseless2;
     private javax.swing.JButton employeesButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

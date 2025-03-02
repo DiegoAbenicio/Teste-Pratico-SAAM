@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.diego.testepraticosaam.service;
 
 import com.diego.testepraticosaam.model.ConnectionDataBase;
@@ -53,5 +49,23 @@ public class UserService {
         }
         return null;
     }
+    
+    public Boolean unavailableEmail(String email) {
+        String sql = "SELECT COUNT(*) AS total FROM public.users WHERE email = ?";
+        try {
+            Connection connection = new ConnectionDataBase().getConexao();
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("total") > 0;
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao verificar email: " + e.getMessage());
+        }
+        return false;
+    }
+
+
     
 }
