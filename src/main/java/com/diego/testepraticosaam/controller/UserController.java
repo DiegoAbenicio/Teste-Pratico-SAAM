@@ -29,8 +29,8 @@ public class UserController {
         if(Objects.nonNull(user)){
             AuthenticatedUser.setUsuario(user);
             return true;
-        } 
-        JOptionPane.showMessageDialog(null, "Email ou senha incorretos!");
+        }  
+        JOptionPane.showMessageDialog(null, "Senha incorreta!");
         return false;
     }
     

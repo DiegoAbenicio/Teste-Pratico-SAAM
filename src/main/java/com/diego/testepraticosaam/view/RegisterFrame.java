@@ -258,7 +258,7 @@ public class RegisterFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Insira um email válido para continuar!");
             return false;
         } else if(userController.unavailableEmail(email.getText().trim())){ 
-            JOptionPane.showMessageDialog(this, "Email já cadastrado na plataforma!");
+            JOptionPane.showMessageDialog(this, "Email já cadastrado no sistema!");
             return false;
         } else if(firstPassword.getPassword().length == 0){
             JOptionPane.showMessageDialog(this, "O campo de senha não pode estar vazio");

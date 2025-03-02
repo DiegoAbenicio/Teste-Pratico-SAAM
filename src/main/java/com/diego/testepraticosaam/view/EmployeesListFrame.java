@@ -16,13 +16,13 @@ public class EmployeesListFrame extends javax.swing.JFrame {
     public EmployeesListFrame() {
         initComponents();
         paginationInitializer();
-        loadDate();
     }
     
     private void paginationInitializer(){
         EmployeesController employeesController = new EmployeesController();
         pagination.setText("1");
         maxPagination.setText(employeesController.returnTotalElements());
+        loadDate();
     } 
 
     @SuppressWarnings("unchecked")
@@ -248,11 +248,14 @@ public class EmployeesListFrame extends javax.swing.JFrame {
     private void deleteEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEmployeesActionPerformed
         int selectedRow = jTable1.getSelectedRow();
         if (selectedRow != -1) {
-            int id = (int) jTable1.getValueAt(selectedRow, 4);
-            EmployeesController employeesController = new EmployeesController();
-            Boolean success = employeesController.deleteEmployees(id);
-            if(success){
-                loadDate();
+            int confirm = JOptionPane.showConfirmDialog(this, "Deseja realmente excluir esse funcionário?", "Confirmação",JOptionPane.YES_NO_OPTION);
+            if (confirm == JOptionPane.YES_OPTION) {
+                int id = (int) jTable1.getValueAt(selectedRow, 4);
+                EmployeesController employeesController = new EmployeesController();
+                Boolean success = employeesController.deleteEmployees(id);
+                if(success){
+                    paginationInitializer();
+                }
             }
         } else{
             JOptionPane.showMessageDialog(this, "Selecione uma coluna antes de excluir");

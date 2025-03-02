@@ -1,6 +1,7 @@
 package com.diego.testepraticosaam.view;
 
 import com.diego.testepraticosaam.controller.UserController;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -166,14 +167,18 @@ public class LoginFrame extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         UserController userController = new UserController();
-        Boolean sucess = userController.login(emailField.getText(), new String(passwordField.getPassword()));
-        if(sucess){
-            HomePageFrame homePageFrame = new HomePageFrame();
-            homePageFrame.setVisible(true);
-            homePageFrame.pack();
-            homePageFrame.setLocationRelativeTo(null);
-            this.dispose();
-        } 
+        if(userController.unavailableEmail(emailField.getText())){
+            Boolean sucess = userController.login(emailField.getText(), new String(passwordField.getPassword()));
+            if(sucess){
+                HomePageFrame homePageFrame = new HomePageFrame();
+                homePageFrame.setVisible(true);
+                homePageFrame.pack();
+                homePageFrame.setLocationRelativeTo(null);
+                this.dispose();
+            } 
+        } else {
+            JOptionPane.showMessageDialog(null, "Email não cadastrado!");
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
