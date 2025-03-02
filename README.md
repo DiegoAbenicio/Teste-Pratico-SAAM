@@ -29,8 +29,15 @@ linha 15: String user = (usuário do seu banco de dados)
 linha 16: String password = (senha do seu banco de dados)
 ```
 
-## Demonstração do Projeto
+## Criando as tabelas
+
+Utilize o arquivo `script.sql`, localizado na pasta raiz do projeto, para criar as tabelas e o banco de dados.
+
+> **Observação:** Por padrão, a instrução para o database está comentada.
+> Caso queira criar tudo de uma vez, basta remover o comentário antes de executar o script
+
+### Demonstração do Projeto
 
 Link para um vídeo hospedado no youtube com o funcionamento do código:
 
-(https://www.youtube.com/watch?v=Oc_L-5fca3o)
+(https://www.youtube.com/watch?v=J6xFxhi7usI)

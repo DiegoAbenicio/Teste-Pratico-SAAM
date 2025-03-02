@@ -137,13 +137,13 @@ public class EmployeesCreateFrame extends javax.swing.JFrame {
         statusFalse.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(statusFalse);
         statusFalse.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        statusFalse.setText("Falso");
+        statusFalse.setText("Inativo");
         statusFalse.setToolTipText("");
 
         statusTrue.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(statusTrue);
         statusTrue.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        statusTrue.setText("Verdadeiro");
+        statusTrue.setText("Ativo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
