@@ -51,7 +51,7 @@ public class HomePageFrame extends javax.swing.JFrame {
         userName.setForeground(new java.awt.Color(53, 81, 145));
         userName.setToolTipText("");
 
-        logoutButton.setIcon(new javax.swing.ImageIcon("D:\\Pessoal\\netbeans\\TestePraticoSAAM\\src\\main\\java\\com\\diego\\Images\\logout.png")); // NOI18N
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/diego/testepraticosaam/icons/logout.png"))); // NOI18N
         logoutButton.setBorderPainted(false);
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

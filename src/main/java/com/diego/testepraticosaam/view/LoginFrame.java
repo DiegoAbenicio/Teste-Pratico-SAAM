@@ -122,7 +122,7 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(53, 81, 145));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("D:\\Pessoal\\netbeans\\TestePraticoSAAM\\src\\main\\java\\com\\diego\\Images\\channels4_profile.jpeg")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/diego/testepraticosaam/icons/channels4_profile.jpeg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

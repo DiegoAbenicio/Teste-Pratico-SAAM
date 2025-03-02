@@ -222,7 +222,7 @@
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\Pessoal\netbeans\TestePraticoSAAM\src\main\java\com\diego\Images\channels4_profile.jpeg"/>
+              <Image iconType="3" name="/com/diego/testepraticosaam/icons/channels4_profile.jpeg"/>
             </Property>
           </Properties>
           <AccessibilityProperties>
